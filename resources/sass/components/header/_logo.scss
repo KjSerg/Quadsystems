@@ -1,0 +1,13 @@
+.logo{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 14.5rem;
+  height: 4.7rem;
+  flex-grow: 0;
+  flex-shrink: 0;
+  transition: 0.4s ease-in-out transform;
+  &:hover{
+    transform: scale(0.9);
+  }
+}

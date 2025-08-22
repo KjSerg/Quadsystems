@@ -1,0 +1,19 @@
+.social-networks {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+
+  a {
+    width: 3.2rem;
+    height: 3.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 0;
+    flex-shrink: 0;
+    &:hover{
+      transform: scale(0.9);
+    }
+  }
+}

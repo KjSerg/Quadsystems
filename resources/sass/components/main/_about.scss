@@ -1,0 +1,110 @@
+.about {
+  &-list {
+    margin-top: 8rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 0 1.6rem;
+    border-radius: 1.6rem;
+    background: rgba(96, 185, 219, 0.16);
+
+    &-item {
+      position: relative;
+      display: flex;
+      align-items: center;
+      width: 33.3%;
+      padding: 4rem;
+
+      &:after {
+        position: absolute;
+        content: '';
+        display: block;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 1px;
+        height: 6.6rem;
+        background: rgba(0, 0, 0, 0.10);
+      }
+
+      &:nth-child(3n) {
+        &:after {
+          display: none;
+        }
+      }
+
+      &__icon {
+        margin-right: 2.4rem;
+        flex-grow: 0;
+        flex-shrink: 0;
+        display: flex;
+        width: 6.6rem;
+        height: 6.6rem;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        background-color: #146C8F;
+      }
+
+      strong {
+        margin-bottom: 1.6rem;
+        color: #000;
+        font-size: 2rem;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 121%;
+      }
+    }
+  }
+
+  &-section {
+    overflow: hidden;
+
+    &__decor {
+      position: absolute;
+      top: 34rem;
+      right: 0;
+      transform: translateX(50%);
+      pointer-events: none;
+      color: #60B9DB;
+      font-size: 32rem;
+      font-style: normal;
+      font-family: 'BostonHeavy', serif;
+      font-weight: 900;
+      line-height: 80%;
+      opacity: 0.05;
+
+    }
+  }
+
+  &-content {
+    width: 100%;
+    max-width: 64rem;
+  }
+
+  &__text {
+    &:not(:last-child) {
+      margin-bottom: 4rem;
+    }
+  }
+
+  &__image {
+    width: 76.4rem;
+    height: 52rem;
+    flex-shrink: 0;
+    flex-grow: 0;
+    border-radius: 1.6rem;
+    overflow: hidden;
+
+  }
+
+  &-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+
+}

@@ -1,0 +1,31 @@
+.custom-button{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 3.2rem;
+  padding: 1.8rem 2.4rem;
+  background:  #FFF;
+  border: 1px solid #fff;
+  color: #146C8F;
+  text-align: center;
+  font-size: 1.6rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 124%;
+  &:hover{
+    background-color: rgba(#146C8F, 1);
+    color: #fff;
+  }
+  &--bordered{
+    color: #146C8F;
+    border-color: #146C8F;
+  }
+  &--blue{
+    color: #fff;
+    background-color: rgba(#fff, 0);
+    &:hover{
+      background-color: rgba(#fff, 1);
+      color: #146C8F;
+    }
+  }
+}

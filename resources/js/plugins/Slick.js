@@ -1,0 +1,35 @@
+import 'slick-carousel';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css'
+
+export default class Slick {
+    constructor() {
+        this.init();
+    }
+
+    headSliderInit() {
+        const t = this;
+        $(document).find('.head-slider').each(function () {
+            const $slider = $(this);
+            const $prev = $(this).closest('section').find('.slick__prev');
+            const $next = $(this).closest('section').find('.slick__next');
+            const $dots = $(this).closest('section').find('.head-slider-dots');
+            $slider.slick({
+                slidesToShow: 1,
+                arrows: true,
+                prevArrow: $prev,
+                nextArrow: $next,
+                dots: true,
+                appendDots: $dots
+            });
+
+
+        });
+    }
+
+
+    init() {
+        this.headSliderInit();
+    }
+}
+
