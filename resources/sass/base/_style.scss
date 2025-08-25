@@ -135,8 +135,27 @@ em, i {
 .section {
   position: relative;
 
+  &-head{
+    display: flex;
+    justify-content: space-between;
+    gap: 4rem;
+    align-items: flex-start;
+    margin-bottom: 4rem;
+    @media (max-width: 768px) {
+      flex-direction: column;
+      gap: 2rem;
+    }
+    .title{
+      margin-bottom: 0!important;
+    }
+    .custom-button{
+      flex-grow: 0;
+      flex-shrink: 0;
+    }
+  }
+
   &:not(.head-section) {
-    padding: 9rem 0;
+    padding: 8rem 0;
     @media (max-width: 1024px) {
       padding: 4rem 0;
     }
@@ -174,5 +193,66 @@ em, i {
   line-height: 165%;
   & > *:not(:last-child){
     margin-bottom: 1.6rem;
+  }
+}
+
+.icon{
+  display: inline-flex;
+  flex-grow: 0;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+}
+
+.slider{
+  &.slick-dotted.slick-slider{
+    margin-bottom: 0;
+  }
+  &-dots{
+    .slick-dots{
+      position: static;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      li{
+        margin: 0;
+      }
+      li button:before{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        content: '';
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background-color: rgba(20, 108, 143, 0.16);
+        opacity: 1;
+        transition: 0.4s ease-in-out;
+      }
+      li.slick-active button:before{
+        width: 2.4rem;border-radius: 10rem;
+        background-color: #146C8F;
+      }
+    }
+  }
+  &__arrow{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.6rem;
+    height: 2.6rem;
+    flex-grow: 0;
+    flex-shrink: 0;
+    &:hover{
+      background-color: rgba(#146C8F, 0.2);
+    }
+  }
+  &-controls{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+    gap: 2.4rem;
   }
 }

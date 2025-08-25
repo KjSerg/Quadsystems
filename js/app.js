@@ -25443,9 +25443,42 @@ var Slick = /*#__PURE__*/function () {
       });
     }
   }, {
+    key: "tripleSliderInit",
+    value: function tripleSliderInit() {
+      var t = this;
+      $(document).find('.slider-triple').each(function () {
+        var $slider = $(this);
+        var $prev = $(this).closest('section').find('.slick__prev');
+        var $next = $(this).closest('section').find('.slick__next');
+        var $dots = $(this).closest('section').find('.slider-dots');
+        $slider.slick({
+          slidesToShow: 3,
+          arrows: true,
+          prevArrow: $prev,
+          nextArrow: $next,
+          dots: true,
+          appendDots: $dots,
+          responsive: [{
+            breakpoint: 1024,
+            settings: {
+              slidesToShow: 2,
+              slidesToScroll: 2
+            }
+          }, {
+            breakpoint: 700,
+            settings: {
+              slidesToShow: 1,
+              slidesToScroll: 1
+            }
+          }]
+        });
+      });
+    }
+  }, {
     key: "init",
     value: function init() {
       this.headSliderInit();
+      this.tripleSliderInit();
     }
   }]);
 }();

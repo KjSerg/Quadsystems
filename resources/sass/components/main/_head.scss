@@ -1,5 +1,8 @@
 .head {
   &-slider{
+    &.slick-dotted.slick-slider{
+      margin-bottom: 0;
+    }
     &-dots{
       .slick-dots{
         position: static;
