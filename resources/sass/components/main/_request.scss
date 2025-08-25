@@ -1,0 +1,119 @@
+.request {
+  &-form {
+    display: flex;
+    //flex-wrap: wrap;
+    gap: 0.8rem;
+    @media (max-width: 450px) {
+      flex-direction: column;
+      width: 100%;
+    }
+
+    label {
+      display: inline-flex;
+      width: 33.2rem;
+      height: 5.6rem;
+
+      @media (max-width: 600px) {
+        width: 100%;
+      }
+
+    }
+    button{
+      flex-grow: 0;
+      flex-shrink: 0;
+      display: inline-flex;
+      height: 5.6rem;
+      padding: 1.8rem 2.4rem;
+      justify-content: center;
+      align-items: center;
+      border-radius: 3.2rem;
+      background: #000;
+      gap: 0.8rem;
+      color:  #FFF;
+      text-align: center;
+      font-family: 'BostonRegular', serif;
+      font-size: 1.6rem;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 124%;
+      cursor: pointer;
+      @media (max-width: 450px) {
+        width: 100%;
+      }
+    }
+    input {
+      width: 100%;
+      height: 100%;
+      border-radius: 3.2rem;
+      padding: 1.5rem 2.4rem;
+      border: 1px solid rgba(0, 0, 0, 0.10);
+      background: #FFF;
+      transition: 0.2s ease-in-out;
+      &:hover,&:focus{
+        border-color: rgba(0, 0, 0, 0.20);
+      }
+
+      &, &::placeholder {
+        font-family: 'BostonRegular', serif;
+        color: #6A6A6A;
+        font-size: 1.6rem;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 165%;
+      }
+    }
+  }
+
+  &-text {
+    width: 100%;
+    max-width: 63.4rem;
+    @media (max-width: 900px) {
+      max-width: 100%;
+    }
+  }
+
+  &__text {
+    color: rgba(255, 255, 255, 0.70);
+    font-size: 1.6rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 165%;
+  }
+
+  &__title {
+    &:not(:last-child) {
+      margin-bottom: 2.4rem;
+      @media (max-width: 600px) {
+        margin-bottom: 1.4rem;
+      }
+    }
+
+    color: #FFF;
+    font-size: 3rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 119%;
+    @media (max-width: 600px) {
+      font-size: 2.4rem;
+    }
+  }
+
+  &-container {
+    gap: 2rem;
+    display: flex;
+    padding: 4rem 5.6rem;
+    justify-content: space-between;
+    align-items: flex-end;
+    border-radius: 1.6rem;
+    background-color: #004C70;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 0 0;
+    @media (max-width: 900px) {
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem;
+    }
+  }
+}
