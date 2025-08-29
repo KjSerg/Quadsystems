@@ -199,10 +199,10 @@
                                         <p>Compatible with Varian and Bruker systems. Save budget, keep precision.</p>
                                     </div>
                                     <div class="head-slide-controls">
-                                        <a href="#" class="custom-button">
+                                        <a href="#modal-connect" class="custom-button fancybox">
                                             Explore products
                                         </a>
-                                        <a href="#" class="custom-button custom-button--blue">Request access</a>
+                                        <a href="#modal-connect" class="custom-button custom-button--blue fancybox">Request access</a>
                                     </div>
                                 </div>
                                 <div class="head-slide__image">
@@ -764,6 +764,48 @@
             </div>
         </div>
     </footer>
+</div>
+<div class="modals">
+    <div class="modal modal--connect" id="modal-connect">
+        <div class="modal__title">Talk to our sales team</div>
+        <div class="modal__text text">
+            <p>Interested in our NMR solutions? Let us know what you're looking for and one of our regional experts will
+                get in touch to discuss tailored options and pricing.</p>
+        </div>
+        <form method="post" class="form modal-form">
+            <label class="form-label  full">
+                <input type="email" placeholder="Your E-mail">
+            </label>
+            <label class="form-label half">
+                <input type="text" placeholder="First name">
+            </label>
+            <label class="form-label half">
+                <input type="text" placeholder="Last name">
+            </label>
+            <label class="form-label  full">
+                <input type="text" placeholder="Massage">
+            </label>
+            <div class="checkbox-group">
+                <div class="checked-group form-label">
+                    <div class="form-consent">
+                        <label class="form-consent-box">
+                            <input name="згода[]" value="I agree to the processing of my personal data and accept the Privacy Policy." type="checkbox">
+                        <span><img src="img/check.svg" alt=""></span>
+                    </label>
+                        <div class="form-consent-text">
+                            <p>I agree to the processing of my personal data and accept the <a
+                                href="#">Privacy Policy </a>.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button type="submit">Send</button>
+        </form>
+    </div>
+    <div class="modal modal--dialog" id="dialog">
+        <div class="modal__title"></div>
+        <div class="modal__text text"></div>
+    </div>
 </div>
 </body>
 <script src="js/app.js"></script>
