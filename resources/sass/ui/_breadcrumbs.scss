@@ -1,0 +1,26 @@
+.breadcrumbs{
+  display: flex;
+  color: #60B9DB;
+  font-size: 1.6rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 165%;
+  a{
+    display: inline-flex;
+    color: #fff;
+
+    font-size: 1.6rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 165%;
+    &:hover{
+      color: #60B9DB;
+    }
+    span{
+      display: inline-block;
+      margin-left: 0.8rem;
+      margin-right: 0.8rem;
+      color: #60B9DB;
+    }
+  }
+}

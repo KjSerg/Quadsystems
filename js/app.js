@@ -25025,6 +25025,19 @@ var Application = /*#__PURE__*/function () {
         }
         window.location.href = href;
       });
+      this.$doc.on('click', '.applications-head__item', function (e) {
+        e.preventDefault();
+        var $t = $(this);
+        var href = $t.attr('href');
+        if ($(window).width() <= 450) {
+          if ($t.hasClass('active')) {
+            $t.closest('.applications-head').find('.applications-head__item').slideDown();
+            return;
+          }
+        }
+        if (href === '#') return;
+        window.location.href = href;
+      });
     }
   }]);
 }();

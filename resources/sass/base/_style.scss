@@ -10,14 +10,21 @@ body {
   display: flex;
   flex-direction: column;
   background-color: #fff;
-  color:  #6A6A6A;
+  color: #6A6A6A;
   font-family: 'Boston', serif;
   font-size: 1.6rem;
   font-style: normal;
   font-weight: 400;
   line-height: 165%;
+
   &.safari * {
   }
+}
+
+.body-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
 html, body {
@@ -46,9 +53,11 @@ img:not(.pswp__img) {
   max-height: 100%;
   width: auto;
   height: auto;
-  &.scale-on-hover{
+
+  &.scale-on-hover {
     transition: 0.4s ease-in-out;
-    &:hover{
+
+    &:hover {
       transform: scale(1.1);
     }
   }
@@ -135,7 +144,7 @@ em, i {
 .section {
   position: relative;
 
-  &-head{
+  &-head {
     display: flex;
     justify-content: space-between;
     gap: 4rem;
@@ -145,10 +154,12 @@ em, i {
       flex-direction: column;
       gap: 2rem;
     }
-    .title{
-      margin-bottom: 0!important;
+
+    .title {
+      margin-bottom: 0 !important;
     }
-    .custom-button{
+
+    .custom-button {
       flex-grow: 0;
       flex-shrink: 0;
     }
@@ -162,18 +173,29 @@ em, i {
   }
 }
 
-.hidden{
-  display: none!important;
+.padding-top-none {
+
+  padding-top: 0 !important;
 }
 
-[data-link]{
+.padding-bottom-none {
+
+  padding-bottom: 0 !important;
+}
+
+.hidden {
+  display: none !important;
+}
+
+[data-link] {
   cursor: pointer;
 }
 
-.title{
-  &:not(:last-child){
+.title {
+  &:not(:last-child) {
     margin-bottom: 2.4rem;
   }
+
   color: #000;
   font-size: 5.6rem;
   font-style: normal;
@@ -184,19 +206,94 @@ em, i {
   }
 }
 
-.text{
-  color:  #6A6A6A;
+.text {
+  color: #6A6A6A;
   font-family: 'BostonRegular', serif;
   font-size: 1.6rem;
   font-style: normal;
   font-weight: 400;
   line-height: 165%;
-  & > *:not(:last-child){
+
+  strong {
+
+    font-family: 'BostonSemiBold', serif;
+    font-weight: 600;
+  }
+
+  em {
+    font-style: italic;
+    font-family: 'Boston It', serif;
+  }
+
+  br {
+    display: block;
+  }
+
+  li {
+    &:not(:last-child) {
+      margin-bottom: 1.5rem;
+    }
+  }
+
+  ul {
+    li {
+
+    }
+  }
+
+  h2, h1 {
+    color: #000;
+    font-family: 'BostonSemiBold', serif;
+    font-size: 6rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 110%;
+  }
+
+  h3 {
+
+    color: #000;
+    font-family: 'BostonHeavy', serif;
+    font-size: 5rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 119%;
+  }
+
+  h4 {
+
+    color: #000;
+    font-family: 'BostonSemiBold', serif;
+    font-size: 5rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 119%;
+  }
+
+  h5 {
+    color: #000;
+    font-family: 'BostonSemiBold', serif;
+    font-size: 4.2rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 119%;
+  }
+
+  h6 {
+    color: #000;
+    font-family: 'BostonSemiBold', serif;
+    font-size: 3rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 119%;
+  }
+
+  & > *:not(:last-child) {
     margin-bottom: 1.6rem;
   }
 }
 
-.icon{
+.icon {
   display: inline-flex;
   flex-grow: 0;
   flex-shrink: 0;
@@ -204,20 +301,23 @@ em, i {
   justify-content: center;
 }
 
-.slider{
-  &.slick-dotted.slick-slider{
+.slider {
+  &.slick-dotted.slick-slider {
     margin-bottom: 0;
   }
-  &-dots{
-    .slick-dots{
+
+  &-dots {
+    .slick-dots {
       position: static;
       display: flex;
       align-items: center;
       justify-content: center;
-      li{
+
+      li {
         margin: 0;
       }
-      li button:before{
+
+      li button:before {
         position: absolute;
         top: 50%;
         left: 50%;
@@ -230,13 +330,16 @@ em, i {
         opacity: 1;
         transition: 0.4s ease-in-out;
       }
-      li.slick-active button:before{
-        width: 2.4rem;border-radius: 10rem;
+
+      li.slick-active button:before {
+        width: 2.4rem;
+        border-radius: 10rem;
         background-color: #146C8F;
       }
     }
   }
-  &__arrow{
+
+  &__arrow {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -244,19 +347,17 @@ em, i {
     height: 2.6rem;
     flex-grow: 0;
     flex-shrink: 0;
-    &:hover{
+
+    &:hover {
       background-color: rgba(#146C8F, 0.2);
     }
   }
-  &-controls{
+
+  &-controls {
     display: flex;
     align-items: center;
     width: 100%;
     justify-content: center;
     gap: 2.4rem;
   }
-}
-
-input.error{
-  border-color: red;
 }
