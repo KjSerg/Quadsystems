@@ -316,8 +316,18 @@ em, i {
       }
     }
   }
-
-  h2, h1 {
+  h2{
+    color: #000;
+    font-family: 'BostonSemiBold', serif;
+    font-size: 5.6rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 110%;
+    @media (max-width: 768px) {
+      font-size: 4.6rem;
+    }
+  }
+   h1 {
     color: #000;
     font-family: 'BostonSemiBold', serif;
     font-size: 6rem;
@@ -460,4 +470,8 @@ em, i {
     justify-content: center;
     gap: 2.4rem;
   }
+}
+
+.simplebar-track.simplebar-vertical {
+  //right: -2rem;
 }

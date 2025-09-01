@@ -25,6 +25,7 @@
     "instead": "^1.0.3",
     "jquery": "^3.7.1",
     "selectric": "^1.13.0",
+    "simplebar": "^6.3.2",
     "slick-carousel": "^1.8.1"
   }
 }

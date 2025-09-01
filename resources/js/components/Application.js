@@ -7,6 +7,7 @@ import {fancyboxInit, showMsg, showNotices} from "../plugins/_fancybox-init";
 import {selectrickInit} from "../plugins/_selectric-init";
 import Slick from "../plugins/Slick";
 import {createSidebarList, sidebarLinkListener} from "./ui/_article";
+import '../plugins/_simplebar-init'
 
 
 export default class Application {
