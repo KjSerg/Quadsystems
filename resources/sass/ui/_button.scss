@@ -1,11 +1,11 @@
-.custom-button{
+.custom-button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.8rem;
   border-radius: 3.2rem;
   padding: 1.8rem 2.4rem;
-  background:  #FFF;
+  background: #FFF;
   border: 1px solid #fff;
   color: #146C8F;
   text-align: center;
@@ -13,7 +13,8 @@
   font-style: normal;
   font-weight: 600;
   line-height: 124%;
-  .icon{
+
+  .icon {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -22,30 +23,127 @@
     width: 2.4rem;
     height: 2.4rem;
   }
-  &:hover{
+
+  &:hover {
     background-color: rgba(#146C8F, 1);
     color: #fff;
   }
-  &--bordered{
+
+  &--bordered {
     color: #146C8F;
     border-color: #146C8F;
     background-color: rgba(#146C8F, 0);
   }
-  &--green{
+
+  &--green {
     color: #fff;
-    border: 1px solid  #146C8F;
+    border: 1px solid #146C8F;
     background: #146C8F;
-    &:hover{
+
+    &:hover {
       background-color: rgba(#fff, 1);
       color: #146C8F;
     }
   }
-  &--blue{
+
+  &--blue {
     color: #fff;
     background-color: rgba(#fff, 0);
-    &:hover{
+
+    &:hover {
       background-color: rgba(#fff, 1);
       color: #146C8F;
+    }
+  }
+}
+
+.like {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  color: #000;
+  font-family: 'BostonSemiBold', serif;
+  font-size: 1.6rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 180%;
+
+  &-icon {
+    display: inline-flex;
+    width: 5.6rem;
+    height: 5.6rem;
+    padding: 1.7rem;
+    justify-content: center;
+    align-items: center;
+    gap: 0.8rem;
+    aspect-ratio: 1/1;
+    flex-direction: column;
+    flex-grow: 0;
+    border-radius: 50%;
+    background: rgba(96, 185, 219, 0.16);
+    transition: 0.4s ease-in-out;
+
+    svg path {
+      transition: 0.4s ease-in-out;
+
+    }
+
+    &:hover {
+      background: rgba(96, 185, 219, 1);
+
+      svg path {
+        fill: #fff;
+
+      }
+    }
+  }
+
+  &.active {
+    .like-icon {
+      background: rgba(96, 185, 219, 1);
+
+      svg path {
+        fill: #fff;
+      }
+
+      &:hover {
+        background: rgba(96, 185, 219, 0.16);
+
+        svg path {
+          fill: rgba(96, 185, 219, 1);
+        }
+      }
+    }
+
+  }
+}
+
+.circle-link {
+  display: flex;
+  width: 5.6rem;
+  height: 5.6rem;
+  padding: 1.7rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.8rem;
+  flex-shrink: 0;
+  flex-grow: 0;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  background: rgba(96, 185, 219, 0.16);
+  transition: 0.4s ease-in-out;
+
+  svg path {
+    transition: 0.4s ease-in-out;
+
+  }
+
+  &:hover {
+    background: rgba(96, 185, 219, 1);
+
+    svg path {
+      fill: #fff;
     }
   }
 }

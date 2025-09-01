@@ -24926,6 +24926,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _plugins_fancybox_init__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../plugins/_fancybox-init */ "./resources/js/plugins/_fancybox-init.js");
 /* harmony import */ var _plugins_selectric_init__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../plugins/_selectric-init */ "./resources/js/plugins/_selectric-init.js");
 /* harmony import */ var _plugins_Slick__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../plugins/Slick */ "./resources/js/plugins/Slick.js");
+/* harmony import */ var _ui_article__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./ui/_article */ "./resources/js/components/ui/_article.js");
 /* provided dependency */ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 function _classCallCheck(a, n) { if (!(a instanceof n)) throw new TypeError("Cannot call a class as a function"); }
@@ -24933,6 +24934,7 @@ function _defineProperties(e, r) { for (var t = 0; t < r.length; t++) { var o = 
 function _createClass(e, r, t) { return r && _defineProperties(e.prototype, r), t && _defineProperties(e, t), Object.defineProperty(e, "prototype", { writable: !1 }), e; }
 function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
 function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+
 
 
 
@@ -24982,6 +24984,7 @@ var Application = /*#__PURE__*/function () {
         (0,_forms_show_password__WEBPACK_IMPORTED_MODULE_4__.showPassword)();
         (0,_plugins_selectric_init__WEBPACK_IMPORTED_MODULE_6__.selectrickInit)();
         (0,_plugins_fancybox_init__WEBPACK_IMPORTED_MODULE_5__.fancyboxInit)();
+        (0,_ui_article__WEBPACK_IMPORTED_MODULE_8__.createSidebarList)();
         _this.showLoaderOnClick();
         _this.linkListener();
         var slider = new _plugins_Slick__WEBPACK_IMPORTED_MODULE_7__["default"]();
@@ -24991,7 +24994,8 @@ var Application = /*#__PURE__*/function () {
     key: "linkListener",
     value: function linkListener() {
       var t = this;
-      this.$doc.on('click', 'a[href*="#"]:not(.fancybox, .book-form__trigger)', function (e) {
+      (0,_ui_article__WEBPACK_IMPORTED_MODULE_8__.sidebarLinkListener)();
+      this.$doc.on('click', 'a[href*="#"]:not(.fancybox)', function (e) {
         e.preventDefault();
         var $t = $(this);
         var href = $t.attr('href');
@@ -25037,6 +25041,14 @@ var Application = /*#__PURE__*/function () {
         }
         if (href === '#') return;
         window.location.href = href;
+      });
+      this.$doc.on('click', '.copy-link-js', function (e) {
+        e.preventDefault();
+        var $t = $(this);
+        var href = $t.attr('href');
+        if (href === '#') return;
+        (0,_utils_helpers__WEBPACK_IMPORTED_MODULE_0__.copyToClipboard)(href);
+        (0,_plugins_fancybox_init__WEBPACK_IMPORTED_MODULE_5__.showMsg)(copiedString);
       });
     }
   }]);
@@ -25200,6 +25212,56 @@ var accordion = function accordion() {
 };
 function hideContent() {
   $(document).find('.accordion:not(.active) .accordion-content').hide();
+}
+
+/***/ }),
+
+/***/ "./resources/js/components/ui/_article.js":
+/*!************************************************!*\
+  !*** ./resources/js/components/ui/_article.js ***!
+  \************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   createSidebarList: () => (/* binding */ createSidebarList),
+/* harmony export */   sidebarLinkListener: () => (/* binding */ sidebarLinkListener)
+/* harmony export */ });
+/* provided dependency */ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+function createSidebarList() {
+  var $text = $(document).find('.single-text.text');
+  var $sidebar = $(document).find('.sidebar-js');
+  if ($sidebar.length === 0) return;
+  var html = '';
+  $text.each(function (i) {
+    var $t = $(this);
+    var $headers = $t.find('h1,h2,h3,h4,h5,h6');
+    $headers.each(function (index) {
+      var $this = $(this);
+      var text = $this.text().trim();
+      var id = $this.attr('id');
+      if (id === undefined) {
+        id = 'title-' + i + index;
+        $this.attr('id', id);
+      }
+      html += "<a class=\"single-content-sidebar__item\" href=\"#".concat(id, "\">").concat(text, "</a>");
+    });
+  });
+  $sidebar.html(html).addClass('active');
+}
+function sidebarLinkListener() {
+  $(document).on('click', '.sidebar-js a', function (e) {
+    e.preventDefault();
+    var $t = $(this);
+    var href = $t.attr('href');
+    if (href === undefined || href === '#') return;
+    var $el = $(document).find(href);
+    if ($el.length === 0) return;
+    $('html, body').animate({
+      scrollTop: $el.offset().top
+    });
+  });
 }
 
 /***/ }),
@@ -25548,8 +25610,11 @@ function showMsg(msg) {
     }
     return;
   }
-  $modal.find('.modal__title').html(title);
-  $modal.find('.modal__text').html(msg);
+  if (msg.length < 50) {
+    $modal.find('.modal__title').html(msg);
+  } else {
+    $modal.find('.modal__text').html(msg);
+  }
   jquery__WEBPACK_IMPORTED_MODULE_0___default().fancybox.open($modal, {
     afterClose: function afterClose() {
       if (url) {
@@ -25557,6 +25622,9 @@ function showMsg(msg) {
       }
     }
   });
+  setTimeout(function () {
+    jquery__WEBPACK_IMPORTED_MODULE_0___default().fancybox.close();
+  }, 3000);
 }
 function showNotices() {
   var index = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;

@@ -1,11 +1,12 @@
-import {detectBrowser, isMobile, showPreloader} from "./utils/_helpers";
+import {copyToClipboard, detectBrowser, isMobile, showPreloader} from "./utils/_helpers";
 import {burger} from "./ui/_burger";
 import {accordion} from "./ui/_accardion";
 import {numberInput} from "./forms/_number-input";
 import {showPassword} from "./forms/_show-password";
-import {fancyboxInit, showNotices} from "../plugins/_fancybox-init";
+import {fancyboxInit, showMsg, showNotices} from "../plugins/_fancybox-init";
 import {selectrickInit} from "../plugins/_selectric-init";
 import Slick from "../plugins/Slick";
+import {createSidebarList, sidebarLinkListener} from "./ui/_article";
 
 
 export default class Application {
@@ -44,6 +45,7 @@ export default class Application {
             showPassword();
             selectrickInit();
             fancyboxInit();
+            createSidebarList();
             this.showLoaderOnClick();
             this.linkListener();
             const slider = new Slick();
@@ -53,7 +55,8 @@ export default class Application {
 
     linkListener() {
         const t = this;
-        this.$doc.on('click', 'a[href*="#"]:not(.fancybox, .book-form__trigger)', function (e) {
+        sidebarLinkListener();
+        this.$doc.on('click', 'a[href*="#"]:not(.fancybox)', function (e) {
             e.preventDefault();
             const $t = $(this);
             const href = $t.attr('href');
@@ -100,5 +103,14 @@ export default class Application {
             if (href === '#') return;
             window.location.href = href;
         });
+        this.$doc.on('click', '.copy-link-js', function (e) {
+            e.preventDefault();
+            const $t = $(this);
+            const href = $t.attr('href');
+            if (href === '#') return;
+            copyToClipboard(href);
+            showMsg(copiedString);
+        });
+
     }
 }

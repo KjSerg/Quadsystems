@@ -214,6 +214,33 @@ em, i {
   font-weight: 400;
   line-height: 165%;
 
+  blockquote{
+    padding-left: 2rem;
+    border-left: 2px solid #146C8F;
+    strong{
+      margin-bottom: 1.4rem;
+      color:  #000;
+      font-family: 'BostonSemiBold', serif;
+      font-size: 2rem;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 145%;
+      @media (max-width: 768px) {
+        margin-bottom: 1rem;
+        font-size: 1.8rem;
+      }
+    }
+    & > * {
+      display: block;
+      &:not(:last-child){
+        margin-bottom: 1.4rem;
+        @media (max-width: 768px) {
+          margin-bottom: 1rem;
+        }
+      }
+    }
+  }
+
   strong {
 
     font-family: 'BostonSemiBold', serif;
@@ -230,14 +257,63 @@ em, i {
   }
 
   li {
+    position: relative;
     &:not(:last-child) {
       margin-bottom: 1.5rem;
+      @media (max-width: 768px) {
+        margin-bottom: 1rem;
+      }
+    }
+  }
+
+  .wp-caption{
+    margin-bottom: 4rem;
+    @media (max-width: 768px) {
+      padding-left: 2rem;
+    }
+    &-text{
+      font-size: 1.2rem;
+    }
+  }
+
+  ol{
+    padding-left: 4rem;
+    @media (max-width: 768px) {
+      padding-left: 2rem;
+    }
+    counter-reset: section;
+    li {
+      padding-left: 2rem;
+      counter-increment: section;
+      &:before{
+        position: absolute;
+        display: block;
+        content: counter(section) '. ';
+        left: 0;
+        top: 0;
+        color: #4788A2;
+      }
     }
   }
 
   ul {
+    padding-left: 4rem;
+    @media (max-width: 768px) {
+      padding-left: 2rem;
+    }
     li {
-
+      padding-left: 2rem;
+      &:before{
+        position: absolute;
+        content: '';
+        display: block;
+        width: 5px;
+        height: 5px;
+        background-color: #4788A2;
+        left: 0;
+        top: 1rem;
+        border-radius: 50%;
+      }
     }
   }
 
@@ -248,6 +324,9 @@ em, i {
     font-style: normal;
     font-weight: 600;
     line-height: 110%;
+    @media (max-width: 768px) {
+      font-size: 5rem;
+    }
   }
 
   h3 {
@@ -258,6 +337,9 @@ em, i {
     font-style: normal;
     font-weight: 600;
     line-height: 119%;
+    @media (max-width: 768px) {
+      font-size: 4rem;
+    }
   }
 
   h4 {
@@ -268,6 +350,9 @@ em, i {
     font-style: normal;
     font-weight: 600;
     line-height: 119%;
+    @media (max-width: 768px) {
+      font-size: 4rem;
+    }
   }
 
   h5 {
@@ -277,6 +362,9 @@ em, i {
     font-style: normal;
     font-weight: 600;
     line-height: 119%;
+    @media (max-width: 768px) {
+      font-size: 3rem;
+    }
   }
 
   h6 {
@@ -286,6 +374,18 @@ em, i {
     font-style: normal;
     font-weight: 600;
     line-height: 119%;
+    @media (max-width: 768px) {
+      font-size: 2.6rem;
+    }
+  }
+
+  h6,h5,h4,h3,h2,h1{
+    &:not(:first-child){
+      margin-top: 4rem;
+      @media (max-width: 768px) {
+        margin-top: 2rem;
+      }
+    }
   }
 
   & > *:not(:last-child) {

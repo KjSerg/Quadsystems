@@ -1,11 +1,16 @@
-.footer{
+.footer {
   background-color: #004C70;
   background-repeat: no-repeat;
   background-position: bottom center;
-  &-nav{
+  @media (min-width: 2000px) {
+    background-size: cover;
+    background-repeat: repeat-x;
+  }
 
-    li{
-      &:not(:last-child){
+  &-nav {
+
+    li {
+      &:not(:last-child) {
         margin-bottom: 2.4rem;
         @media (max-width: 850px) {
           margin-bottom: 1rem;
@@ -13,23 +18,26 @@
       }
     }
 
-    a{
+    a {
       color: rgba(255, 255, 255, 0.70);
       font-size: 1.6rem;
       font-style: normal;
       font-weight: 600;
       line-height: 124%;
-      &:hover{
+
+      &:hover {
         color: rgba(255, 255, 255, 1);
         text-decoration: underline;
       }
     }
   }
-  &-column{
+
+  &-column {
     @media (max-width: 850px) {
       width: calc(50% - 1.5rem);
     }
-    &__title{
+
+    &__title {
       margin-bottom: 2.4rem;
       color: #FFF;
       font-size: 2rem;
@@ -38,22 +46,26 @@
       line-height: 121%;
     }
   }
-  .language-switch{
+
+  .language-switch {
     @media (max-width: 850px) {
       position: absolute;
       right: 2rem;
       top: 3rem;
     }
-    & > .language-switch-item{
+
+    & > .language-switch-item {
       color: #fff;
     }
-    &-list{
+
+    &-list {
 
       max-height: 20rem;
       overflow: auto;
     }
   }
-  &-bottom{
+
+  &-bottom {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -70,21 +82,25 @@
       text-align: center;
       gap: 1rem;
     }
-    a{
+
+    a {
       color: rgba(255, 255, 255, 0.70);
       font-size: 1.6rem;
       font-style: normal;
       font-weight: 400;
       line-height: 165%;
-      &:hover{
+
+      &:hover {
         text-decoration: underline;
       }
     }
   }
-  &__text{
+
+  &__text {
     color: rgba(255, 255, 255, 0.70);
   }
-  &-main{
+
+  &-main {
     width: 100%;
     max-width: 38rem;
     display: flex;
@@ -96,14 +112,16 @@
       gap: 2rem;
     }
   }
-  &-top{
+
+  &-top {
     position: relative;
     padding: 5.6rem 0;
     @media (max-width: 850px) {
 
       padding: 2rem 0;
     }
-    &-container{
+
+    &-container {
       display: flex;
       align-items: flex-start;
       justify-content: space-between;
@@ -112,8 +130,9 @@
         flex-wrap: wrap;
       }
     }
-    &:not(:last-child){
-      border-bottom: 1px solid  rgba(255, 255, 255, 0.16);
+
+    &:not(:last-child) {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.16);
     }
   }
 }

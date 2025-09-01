@@ -31,8 +31,11 @@ export function showMsg(msg, url = '') {
         }
         return;
     }
-    $modal.find('.modal__title').html(title);
-    $modal.find('.modal__text').html(msg);
+    if(msg.length < 50){
+        $modal.find('.modal__title').html(msg);
+    }else {
+        $modal.find('.modal__text').html(msg);
+    }
     $.fancybox.open($modal, {
         afterClose: function () {
             if (url) {
@@ -40,7 +43,9 @@ export function showMsg(msg, url = '') {
             }
         }
     });
-
+    setTimeout(function (){
+        $.fancybox.close();
+    }, 3000);
 }
 
 export function showNotices(index = 0) {

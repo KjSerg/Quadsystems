@@ -46,6 +46,10 @@
     min-height: 70vh;
     background-color:  #004C70;
     background-size: cover;
+    overflow: hidden;
+    @media (max-width: 1024px) {
+      min-height: 40rem;
+    }
     &__decor{
       position: absolute;
       left: 50%;
@@ -58,6 +62,9 @@
       font-weight: 900;
       line-height: 80%;
       pointer-events: none;
+      @media (max-width: 1500px) {
+        font-size: 20rem;
+      }
     }
   }
 }

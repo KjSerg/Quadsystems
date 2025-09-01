@@ -1,13 +1,22 @@
 .single{
   &-text {
+    &:not(:last-child) {
+      margin-bottom: 4rem;
+    }
     & > *:not(:last-child) {
       margin-bottom: 2.4rem;
+      @media (max-width: 768px) {
+        margin-bottom: 1rem;
+      }
     }
   }
   &-category{
     position: relative;
     &:not(:last-child){
       padding-right: 2rem;
+      @media (max-width: 450px) {
+        padding-right: 0;
+      }
       &:after{
         position: absolute;
         right: 0;
@@ -19,6 +28,8 @@
         height: 4px;
         background-color: #6A6A6A;
         border-radius: 50%;
+        @media (max-width: 450px) {display: none;
+        }
       }
     }
     &__link{
@@ -36,6 +47,9 @@
     display: flex;
     gap: 1.5rem;
     margin-bottom: 4rem;
+    @media (max-width: 450px) {
+      flex-direction: column;
+    }
   }
   &-wrap{
     width: 100%;
@@ -44,8 +58,10 @@
   &-content{
     display: flex;align-items: flex-start;
     justify-content: space-between;
+    gap: 2rem;
     &-sidebar{
       position: sticky;
+      top: 1rem;
       display: flex;
       width: 35.9rem;
       padding: 1.2rem;
@@ -53,18 +69,41 @@
       align-items: flex-start;
       border-radius: 1.6rem;
       background: rgba(96, 185, 219, 0.16);
+      @media (max-width: 1200px) {
+        padding: 1rem;
+      }
+      @media (max-width: 767px) {
+        display: none;
+      }
       &__item{
         display: flex;
         padding: 1.6rem 2.4rem;
+        @media (max-width: 1200px) {
+          padding: 1rem 2rem;
+        }
         align-items: center;
         gap: 0.8rem;
         align-self: stretch;
         border-radius: 1.2rem;
         background:  rgba(96, 185, 219, 0);
         &:hover{
+
+          @media (min-width: 1023px) {
+            background: rgba(96, 185, 219, 0.16);
+          }
+        }
+        &:active{
           background:  rgba(96, 185, 219, 0.16);
         }
       }
     }
+  }
+  &-controls{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid  rgba(0, 0, 0, 0.10);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.10);
+    padding: 1.6rem 0;
   }
 }
