@@ -33,4 +33,14 @@
       color: #60B9DB;
     }
   }
+  &--inner{
+    color: #146C8F;
+    @media (max-width: 1200px) {
+
+      justify-content: flex-start;
+    }
+    a {
+      color: #000;
+    }
+  }
 }

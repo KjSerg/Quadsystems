@@ -1,0 +1,30 @@
+.contact{
+  &-form{
+    width: 55rem;
+    flex-grow: 0;
+    flex-shrink: 0;
+    @media (max-width: 1023px) {
+      width: 100%;
+    }
+  }
+  &-text{
+    width: 100%;
+    max-width: 64rem;
+    @media (max-width: 1023px) {
+      max-width: 100%;
+    }
+  }
+  &-section{
+    background:  rgba(96, 185, 219, 0.16);
+    &-row{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 4rem;
+      @media (max-width: 1023px) {
+        flex-direction: column;
+        gap: 3rem;
+      }
+    }
+  }
+}

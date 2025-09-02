@@ -368,10 +368,10 @@ em, i {
 
     color: #000;
     font-family: 'BostonSemiBold', serif;
-    font-size: 5rem;
+    font-size: 5.6rem;
     font-style: normal;
     font-weight: 600;
-    line-height: 119%;
+    line-height: 113%;
     @media (max-width: 768px) {
       font-size: 4rem;
     }
@@ -481,6 +481,19 @@ em, i {
     width: 100%;
     justify-content: center;
     gap: 2.4rem;
+  }
+}
+
+.page-title{
+  margin-bottom: 2.4rem;
+  color:  #000;
+  font-family: 'BostonSemiBold', serif;
+  font-size: 7rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 110%;
+  @media (max-width: 1200px) {
+    font-size: 5rem;
   }
 }
 
