@@ -38,6 +38,11 @@
       color: #fff;
       background-color: rgba(#fff, 0);
     }
+    &-black{
+      border-color: #000;
+      color: #000;
+      background-color: rgba(#fff, 0);
+    }
   }
 
   &--green {
@@ -58,6 +63,15 @@
     &:hover {
       background-color: rgba(#fff, 1);
       color: #146C8F;
+    }
+  }
+
+  &--black{
+    background: #000;
+    border: 1px solid #000;
+    color: #fff;
+    &:hover{
+      background: rgba(#000, 0);
     }
   }
 }

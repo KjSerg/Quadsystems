@@ -1,4 +1,12 @@
 .request {
+  &-controls{
+    display: flex;
+    gap: 0.8rem;
+    a{
+
+      white-space: nowrap;
+    }
+  }
   &-form {
     display: flex;
     //flex-wrap: wrap;

@@ -1,0 +1,45 @@
+.blockquote {
+  &-content {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 4rem;
+    text-align: center;
+    width: 100%;
+    max-width: 98rem;
+    margin: 0 auto;
+    @media (max-width: 768px) {
+      gap: 2rem;
+    }
+  }
+  &__author{
+    color: #6A6A6A;
+    text-align: center;
+    font-family: 'BostonSemiBold', serif;
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 121%;
+  }
+  &__avatar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 14rem;
+    height: 14rem;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-grow: 0;flex-shrink: 0;
+  }
+  &__text{
+    color: #000;
+    font-family: 'BostonSemiBold', serif;
+    font-size: 4.2rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 116%;
+    @media (max-width: 768px) {
+      font-size:3rem;
+    }
+  }
+}
