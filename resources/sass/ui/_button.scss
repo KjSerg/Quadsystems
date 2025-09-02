@@ -33,6 +33,11 @@
     color: #146C8F;
     border-color: #146C8F;
     background-color: rgba(#146C8F, 0);
+    &-white{
+      border-color: #fff;
+      color: #fff;
+      background-color: rgba(#fff, 0);
+    }
   }
 
   &--green {
