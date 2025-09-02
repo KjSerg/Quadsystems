@@ -26922,6 +26922,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _plugins_Slick__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../plugins/Slick */ "./resources/js/plugins/Slick.js");
 /* harmony import */ var _ui_article__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./ui/_article */ "./resources/js/components/ui/_article.js");
 /* harmony import */ var _plugins_simplebar_init__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../plugins/_simplebar-init */ "./resources/js/plugins/_simplebar-init.js");
+/* harmony import */ var _ui_tabs__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./ui/_tabs */ "./resources/js/components/ui/_tabs.js");
 /* provided dependency */ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 function _classCallCheck(a, n) { if (!(a instanceof n)) throw new TypeError("Cannot call a class as a function"); }
@@ -26929,6 +26930,7 @@ function _defineProperties(e, r) { for (var t = 0; t < r.length; t++) { var o = 
 function _createClass(e, r, t) { return r && _defineProperties(e.prototype, r), t && _defineProperties(e, t), Object.defineProperty(e, "prototype", { writable: !1 }), e; }
 function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
 function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+
 
 
 
@@ -26991,7 +26993,8 @@ var Application = /*#__PURE__*/function () {
     value: function linkListener() {
       var t = this;
       (0,_ui_article__WEBPACK_IMPORTED_MODULE_8__.sidebarLinkListener)();
-      this.$doc.on('click', 'a[href*="#"]:not(.fancybox)', function (e) {
+      (0,_ui_tabs__WEBPACK_IMPORTED_MODULE_10__.tabs)();
+      this.$doc.on('click', 'a[href*="#"]:not(.fancybox, .tabs-head__item)', function (e) {
         e.preventDefault();
         var $t = $(this);
         var href = $t.attr('href');
@@ -27288,6 +27291,37 @@ var burger = function burger() {
       $t.addClass('active');
       $menu.addClass('active');
     }
+  });
+};
+
+/***/ }),
+
+/***/ "./resources/js/components/ui/_tabs.js":
+/*!*********************************************!*\
+  !*** ./resources/js/components/ui/_tabs.js ***!
+  \*********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   tabs: () => (/* binding */ tabs)
+/* harmony export */ });
+/* provided dependency */ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+var tabs = function tabs() {
+  $(document).on('click', '.tabs-head__item', function (e) {
+    e.preventDefault();
+    var $t = $(this);
+    var href = $t.attr('href');
+    if ($t.hasClass('active')) return;
+    if (href === '#') return;
+    if (href === undefined) return;
+    var $el = $(document).find(href);
+    if ($el.length === 0) return;
+    $t.closest('section').find('.tabs-head__item').removeClass('active');
+    $t.closest('section').find('.tabs-content').slideUp();
+    $el.slideDown();
+    $t.addClass('active');
   });
 };
 

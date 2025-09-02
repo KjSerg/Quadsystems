@@ -8,6 +8,7 @@ import {selectrickInit} from "../plugins/_selectric-init";
 import Slick from "../plugins/Slick";
 import {createSidebarList, sidebarLinkListener} from "./ui/_article";
 import '../plugins/_simplebar-init'
+import {tabs} from "./ui/_tabs";
 
 
 export default class Application {
@@ -47,6 +48,7 @@ export default class Application {
             selectrickInit();
             fancyboxInit();
             createSidebarList();
+
             this.showLoaderOnClick();
             this.linkListener();
             const slider = new Slick();
@@ -57,7 +59,8 @@ export default class Application {
     linkListener() {
         const t = this;
         sidebarLinkListener();
-        this.$doc.on('click', 'a[href*="#"]:not(.fancybox)', function (e) {
+        tabs();
+        this.$doc.on('click', 'a[href*="#"]:not(.fancybox, .tabs-head__item)', function (e) {
             e.preventDefault();
             const $t = $(this);
             const href = $t.attr('href');

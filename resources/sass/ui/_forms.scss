@@ -93,6 +93,11 @@
         width: 100%;
       }
     }
+    &.error{
+      .selectric{
+        border-color: red;
+      }
+    }
   }
 
   input {

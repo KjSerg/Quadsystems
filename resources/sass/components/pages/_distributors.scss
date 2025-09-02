@@ -1,0 +1,98 @@
+.distributors {
+  &-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.6rem;
+
+    &-item {
+      padding: 3rem;
+      width: calc(50% - 0.8rem);
+      border-radius: 1.6rem;
+      background: rgba(96, 185, 219, 0.16);
+      @media (max-width: 1500px) {
+        padding: 2rem 1.6rem;
+      }
+      @media (max-width: 1023px) {
+        width: 100%;
+      }
+      &-details {
+        color: #000;
+        font-family: 'BostonRegular', serif;
+        font-size: 1.6rem;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 165%;
+        strong{
+          font-family: 'BostonRegular', serif;
+          font-weight: 400;
+        }
+        a{
+          color:#6A6A6A;
+          font-family: 'BostonRegular', serif;
+          font-size: 1.6rem;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 165%;
+          &:hover{
+            text-decoration: underline;
+          }
+        }
+        .icon{
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-grow: 0;
+          flex-shrink: 0;
+          width: 2.4rem;
+          height: 2.4rem;
+          aspect-ratio: 1/1;
+          margin-right: 1rem;
+        }
+        li{
+          display: flex;
+          gap: 4px;
+          align-items: flex-start;
+          & > *:nth-child(3){
+            @media (max-width: 500px) {
+              width: 100%;
+            }
+          }
+          @media (max-width: 500px) {
+            flex-wrap: wrap;
+          }
+          &:not(:last-child){
+            margin-bottom: 1rem;
+            @media (max-width: 500px) {
+              margin-bottom: 1.6rem;
+            }
+          }
+        }
+      }
+
+      &__title {
+        padding-bottom: 1.6rem;
+        margin-bottom: 1.6rem;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.10);
+        color: #000;
+        font-family: 'BostonSemiBold', serif;
+        font-size: 2rem;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 121%;
+      }
+    }
+  }
+
+  &__title:not(:last-child) {
+    margin-bottom: 4rem;
+  }
+
+  &-container {
+    display: flex;
+    flex-direction: column;
+
+    & > *:not(:last-child) {
+      margin-bottom: 4rem;
+    }
+  }
+}

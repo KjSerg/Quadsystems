@@ -118,17 +118,7 @@
   font-display: swap;
 }
 
-@font-face {
-  font-family: 'BostonSemiBold';
-  src: url('../../../fonts/Boston-SemiBold.eot');
-  src: url('../../../fonts/Boston-SemiBold.eot?#iefix') format('embedded-opentype'),
-  url('../../../fonts/Boston-SemiBold.woff2') format('woff2'),
-  url('../../../fonts/Boston-SemiBold.woff') format('woff'),
-  url('../../../fonts/Boston-SemiBold.ttf') format('truetype');
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
+
 
 @font-face {
   font-family: 'Boston Light It';
@@ -199,3 +189,14 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: 'BostonSemiBold';
+  src: url('../../../fonts/Boston-SemiBold.eot');
+  src: url('../../../fonts/Boston-SemiBold.eot?#iefix') format('embedded-opentype'),
+  url('../../../fonts/Boston-SemiBold.woff2') format('woff2'),
+  url('../../../fonts/Boston-SemiBold.woff') format('woff'),
+  url('../../../fonts/Boston-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
