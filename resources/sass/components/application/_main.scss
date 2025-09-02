@@ -179,6 +179,18 @@
           margin-bottom: 4rem;
         }
       }
+      &--center{
+        margin-top: 6rem;
+        margin-bottom: 6rem;
+        align-items: center;
+        picture{
+          align-items: center;
+        }
+        @media (max-width: 1024px) {
+          margin-bottom: 4rem;
+          margin-top: 4rem;
+        }
+      }
       @media (max-width: 1024px) {
         margin-top: 0;width: 40.92rem;
         height: 34.62rem;
