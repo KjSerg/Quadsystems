@@ -17,6 +17,7 @@
     margin-bottom: 6.4rem;
     overflow: auto;
     display: flex;
+    flex-wrap: wrap;
     width: 100%;
     max-width: 154.4rem;
     padding: 0.8rem;
@@ -51,6 +52,10 @@
       font-weight: 600;
       line-height: 124%;
 
+      @media (max-width: 1600px) {
+        min-width: auto;
+        white-space: nowrap;
+      }
       @media (max-width: 767px) {
         min-width: auto;
         height: auto;

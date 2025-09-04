@@ -1,6 +1,4 @@
 import 'slick-carousel';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css'
 
 export default class Slick {
     constructor() {
@@ -63,10 +61,37 @@ export default class Slick {
         });
     }
 
-
     init() {
+        change_sbi_images_html();
         this.headSliderInit();
         this.tripleSliderInit();
     }
 }
 
+
+function change_sbi_images_html() {
+    $(document).find('.instagram-posts').each(function () {
+        const $wrap = $(this);
+        let html = '';
+        const $items = $wrap.find('.sbi_photo');
+        $items.each(function () {
+            const $item = $(this);
+            const href = $item.attr('href');
+            const src = $item.attr('data-full-res');
+            let temp = `
+             <div>
+                        <div class="instagram-post" >
+                            <a href="${href}" class="instagram-post__image" style="display:block;">
+                                <img src="${src}" class="cover" alt="">
+                            </a>
+                        </div>
+                    </div>
+            `;
+            html = html + temp;
+        });
+        if (html) {
+            $wrap.addClass('slider-triple');
+            $wrap.html(html);
+        }
+    });
+}
