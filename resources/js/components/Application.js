@@ -1,7 +1,7 @@
-import {copyToClipboard, detectBrowser, isMobile, showPreloader} from "./utils/_helpers";
+import {copyToClipboard, detectBrowser, hidePreloader, isJsonString, isMobile, showPreloader} from "./utils/_helpers";
 import {burger} from "./ui/_burger";
 import {accordion} from "./ui/_accardion";
-import {numberInput} from "./forms/_number-input";
+import {initTelMask, numberInput} from "./forms/_number-input";
 import {showPassword} from "./forms/_show-password";
 import {fancyboxInit, showMsg, showNotices} from "../plugins/_fancybox-init";
 import {selectrickInit} from "../plugins/_selectric-init";
@@ -9,6 +9,7 @@ import Slick from "../plugins/Slick";
 import {createSidebarList, sidebarLinkListener} from "./ui/_article";
 import '../plugins/_simplebar-init'
 import {tabs} from "./ui/_tabs";
+import {sendRequestClickListener} from "./ui/_request-on-click";
 
 
 export default class Application {
@@ -48,7 +49,6 @@ export default class Application {
             selectrickInit();
             fancyboxInit();
             createSidebarList();
-
             this.showLoaderOnClick();
             this.linkListener();
             const slider = new Slick();
@@ -59,6 +59,7 @@ export default class Application {
     linkListener() {
         const t = this;
         sidebarLinkListener();
+        sendRequestClickListener();
         tabs();
         this.$doc.on('click', 'a[href*="#"]:not(.fancybox, .tabs-head__item)', function (e) {
             e.preventDefault();
@@ -98,8 +99,8 @@ export default class Application {
             e.preventDefault();
             const $t = $(this);
             const href = $t.attr('href');
-            if($(window).width() <= 450){
-                if($t.hasClass('active')){
+            if ($(window).width() <= 450) {
+                if ($t.hasClass('active')) {
                     $t.closest('.applications-head').find('.applications-head__item').slideDown();
                     return;
                 }
@@ -114,6 +115,29 @@ export default class Application {
             if (href === '#') return;
             copyToClipboard(href);
             showMsg(copiedString);
+        });
+        $(document).on('click', '.pagination-js a', function (e) {
+            e.preventDefault();
+            const $t = $(this);
+            const href = $t.attr('href');
+            if (href === undefined || href === '') return;
+            $t.addClass('not-active');
+            showPreloader();
+            $.ajax({
+                type: 'GET',
+                url: href,
+
+            }).done(function (r) {
+                hidePreloader();
+                $t.removeClass('not-active');
+                if (!r) return;
+                const parser = new DOMParser();
+                const $r = $(parser.parseFromString(r, "text/html"));
+                const $pagination = $r.find('.pagination-js');
+                const $catalog = $r.find('.container-js');
+                $(document).find('.pagination-js').html($pagination.html());
+                $(document).find('.container-js').append($catalog.html());
+            });
         });
 
     }

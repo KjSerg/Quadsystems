@@ -19,3 +19,16 @@ mix.sass('resources/sass/app.scss', 'css', {
         require('cssnano')()
     ]
 });
+mix.sass('resources/sass/fix.scss', 'css', {
+    sassOptions: {
+        outputStyle: 'expanded'
+    }
+}).options({
+    postCss: [
+        autoprefixer({
+            overrideBrowserslist: ['last 6 versions'],
+            grid: true
+        }),
+        require('cssnano')()
+    ]
+})
