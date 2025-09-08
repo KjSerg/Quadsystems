@@ -27,7 +27,8 @@ export default class Application {
 
     showLoaderOnClick() {
         this.$doc.on('click', 'a.show-load, .header a, .footer a', function (e) {
-            if (!$(this).attr('href').includes('#')) showPreloader();
+            let test = $(this).attr('href').includes('#') || $(this).attr('href').includes('tel') || $(this).attr('href').includes('mailto');
+            if (!test) showPreloader();
         });
     }
 

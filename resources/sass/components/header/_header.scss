@@ -82,12 +82,12 @@
     }
 
     .current-menu-item, .current-menu-parent, .current-menu-ancestor {
-      a {
+      & > a {
         color: #146C8F;
       }
     }
 
-    .menu-item-has-children {
+    .menu-item-has-children{
       & > a {
         padding-right: 2.4rem;
 
