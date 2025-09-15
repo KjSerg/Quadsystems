@@ -10,6 +10,7 @@ import {createSidebarList, sidebarLinkListener} from "./ui/_article";
 import '../plugins/_simplebar-init'
 import {tabs} from "./ui/_tabs";
 import {sendRequestClickListener} from "./ui/_request-on-click";
+import renderContainer from "./utils/_renderContainer";
 
 
 export default class Application {
@@ -53,6 +54,9 @@ export default class Application {
             this.showLoaderOnClick();
             this.linkListener();
             const slider = new Slick();
+        });
+        window.addEventListener('popstate', (event) => {
+            window.location.href = window.location.href;
         });
     }
 
@@ -120,25 +124,13 @@ export default class Application {
         $(document).on('click', '.pagination-js a', function (e) {
             e.preventDefault();
             const $t = $(this);
+            const $wrapper = $t.closest('.pagination-js');
             const href = $t.attr('href');
+            const isLoadMore = $t.hasClass('load-more-js');
             if (href === undefined || href === '') return;
-            $t.addClass('not-active');
-            showPreloader();
-            $.ajax({
-                type: 'GET',
-                url: href,
-
-            }).done(function (r) {
-                hidePreloader();
-                $t.removeClass('not-active');
-                if (!r) return;
-                const parser = new DOMParser();
-                const $r = $(parser.parseFromString(r, "text/html"));
-                const $pagination = $r.find('.pagination-js');
-                const $catalog = $r.find('.container-js');
-                $(document).find('.pagination-js').html($pagination.html());
-                $(document).find('.container-js').append($catalog.html());
-            });
+            renderContainer(href, {
+                $wrapper, isLoadMore
+            })
         });
 
     }

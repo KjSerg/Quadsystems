@@ -18,7 +18,9 @@ export default class Slick {
                 prevArrow: $prev,
                 nextArrow: $next,
                 dots: true,
-                appendDots: $dots
+                appendDots: $dots,
+                autoplay: true,
+                autoplaySpeed: 15000,
             });
 
 

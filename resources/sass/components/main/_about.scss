@@ -50,7 +50,7 @@
         }
       }
 
-      &:nth-child(3n) {
+      &:nth-child(3n), &:last-child {
         &:after {
           display: none;
         }
@@ -127,25 +127,13 @@
   }
 
   &__image {
-    width: 76.4rem;
+    width: 50.4rem;
     height: 52rem;
     flex-shrink: 0;
     flex-grow: 0;
     border-radius: 1.6rem;
     overflow: hidden;
 
-    @media (max-width: 1200px) {
-      width: 60rem;
-      height: 42rem;
-    }
-    @media (max-width: 900px) {
-      width: 76.4rem;
-      height: 52rem;
-    }
-    @media (max-width: 767px) {
-      width: 60rem;
-      height: 42rem;
-    }
     @media (max-width: 570px) {
       width: 100%;
       max-width: 40rem;
